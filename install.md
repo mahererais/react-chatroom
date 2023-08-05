@@ -10,4 +10,14 @@ $ npm install
 $ npm run dev
 
 $ npm install
+
+$ npm install sass
+
+
+
+$ npm install redux
+
+$ npm install @reduxjs/toolkit
+
+$ npm install @reduxjs/toolkit
 ```
