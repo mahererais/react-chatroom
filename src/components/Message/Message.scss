@@ -2,10 +2,12 @@
 
 .message_container {
     margin-bottom: 1rem;
+
+    
     
     .author {
-        padding: 0.5rem 0 ;
-        margin-bottom: 0.3rem;
+        padding: 0.5rem 1.2rem ;
+        margin-bottom: 0.5rem;
     }
     
     .message {
@@ -16,5 +18,19 @@
         border-radius: 99999px;
 
         width: max-content;
+
+        position: relative;
+        
+        &::before {
+            content: "";
+            position: absolute;
+            display: inline-block;
+            bottom: 100%;
+            left: 25px;
+            height: 0;
+            width: 0;
+            border-bottom: 10px solid white;
+            border-left: 15px solid transparent;
+        }
     }
 }

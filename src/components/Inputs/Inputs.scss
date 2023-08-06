@@ -2,7 +2,6 @@
 
 .inputs_container {
     display: flex;
-    gap: 0.5rem;
     justify-content: space-between;
     align-items: center;
 
@@ -35,18 +34,18 @@
 
         transition: 0.2s ease;
 
-        width: calc(v.$input-height - 2*0.5rem);
+        width: calc(v.$input-height - 2*0.8rem);
         aspect-ratio: 1;
 
         &>svg {
             width: 100%;
             height: 100%;
-            fill: dodgerblue;
+            fill: v.$bg-body-color;
         }
 
         &:hover {
             &>svg {
-                fill: v.$bg-body-color;
+                fill: v.$chat-main-color;
             }
         }
     }
