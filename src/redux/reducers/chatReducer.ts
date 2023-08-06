@@ -14,7 +14,7 @@ const chatReducer: Reducer<ChatState> = createReducer(
   (builder) => {
     builder
       .addCase(chatAction.newMessage, (state, action) => {
-        state.messages.push(action.payload as MessageType);
+        state.messages.unshift(action.payload as MessageType);
       })
       .addCase(chatAction.incrementCount, (state) => {
         state.count += 1;
