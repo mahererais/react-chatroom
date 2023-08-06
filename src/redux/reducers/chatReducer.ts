@@ -4,8 +4,12 @@ import * as chatAction from '../action/chatAction';
 
 
 const initialState: ChatState = {
-  messages: [],
-  count: 0,
+  messages: [{
+    author: 'anonyme',
+    message: "voici mon message secret",
+    time: 123455465,
+  }],
+  count: 1,
   lastMessageTimestamp: new Date().getTime(),
 };
 

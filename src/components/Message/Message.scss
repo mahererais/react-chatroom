@@ -3,10 +3,20 @@
 .message_container {
     margin-bottom: 1rem;
     width: 100%;
-        
+    
+    padding: 0 0.5rem;
+    
     .author {
-        padding: 0.5rem 0 ;
-        margin-bottom: 0.5rem;
+        padding: 0.5rem ;
+        margin-bottom: 1rem;
+        margin-left: 0.5rem;
+
+        background-color: v.$bg-body-color;
+        width: max-content;
+        box-shadow: 0 0 3px rgba($color: #000000, $alpha: 0.5);
+        border-radius: 5px;
+
+        font-size: 0.8rem;
     }
     
     .message {
@@ -14,15 +24,17 @@
         color: white;
         
         background-color: dodgerblue;
-        border-radius: 20px;
+        border-radius: 10px;
         border-top-left-radius: 5px;
-
+        
         width: max-content;
         max-width: 90%;;
-
+        
         position: relative;
-
+        
         margin-left: 20px;
+
+        box-shadow: 0 0 5px #000a;
         
         &::before {
             content: "";
@@ -34,6 +46,24 @@
             width: 0;
             border-bottom: 15px solid dodgerblue;
             border-left: 15px solid transparent;
+        }
+    }
+
+    &.right {
+
+        & > .author, & > .message {
+            margin-right: 0;
+            margin-left: auto;
+        }
+
+        & > .message {
+            background-color: limegreen;
+
+            &::before {
+                left: unset;
+                right: 10px;
+                border-bottom: 15px solid limegreen;
+            }
         }
     }
 }
