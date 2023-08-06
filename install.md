@@ -20,4 +20,7 @@ $ npm install redux
 $ npm install @reduxjs/toolkit
 
 $ npm install @reduxjs/toolkit
+
+# composant style
+$ yarn add styled-components@5
 ```

@@ -6,4 +6,8 @@
   background-color: v.$chat-main-color;
 
   height: 100%;
+
+  box-shadow: 0 0 8px rgba($color: #000000, $alpha: 0.15);
+
+  overflow: hidden;
 }

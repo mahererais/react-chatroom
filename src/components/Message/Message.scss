@@ -24,11 +24,11 @@
             content: "";
             position: absolute;
             display: inline-block;
-            bottom: 100%;
-            left: 25px;
+            bottom: calc(100% - 5px);
+            left: 20px;
             height: 0;
             width: 0;
-            border-bottom: 10px solid white;
+            border-bottom: 15px solid white;
             border-left: 15px solid transparent;
         }
     }
