@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import messagesReducer from '../components/reducers/messagesReducer';
+import chatReducer from '../reducers/chatReducer';
 
 const store =  configureStore({
   reducer: {
-    chat : messagesReducer,
-  }
+    chat : chatReducer,
+  }, 
+  devTools: true,
 })
 
 export default store;

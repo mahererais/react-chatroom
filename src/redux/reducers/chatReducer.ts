@@ -3,30 +3,31 @@ import { MessageType } from '../../@types'
 
 type MessagesType = {
     messages: MessageType[],
-    count: number
+    count: number,
+    lastMessageTimestamp: number
 };
 
-type ActionType = {
-    type: string,
-    payload: MessageType
-}
+// type ActionType = {
+//     type: string,
+//     payload: MessageType
+// }
 
 const initialState: MessagesType = {
     messages: [],
     count: 0,
+    lastMessageTimestamp: -1,
 }
 
-const messagesReducer = createReducer(initialState, (reducer) => {
-    reducer.addCase(
+const chatReducer = createReducer(initialState, (builder) => {
+    builder.addCase(
         createAction("message/new"),
         (state, action) => {
-            // console.log("new message : ");
-            // console.log(action.payload);
             
             state.messages.push((action.payload) as MessageType);
             state.count += 1;
+            state.lastMessageTimestamp = new Date().getTime()
             
         })
 });
 
-export default messagesReducer;
+export default chatReducer;

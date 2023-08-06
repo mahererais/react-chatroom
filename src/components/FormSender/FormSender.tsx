@@ -1,10 +1,10 @@
 import React from "react";
-import './Inputs.scss';
+import './FormSender.scss';
 import { useDispatch } from "react-redux";
 
 import { BsSend } from 'react-icons/bs';
 
-const Inputs: React.FC = () => {
+const FormSender: React.FC = () => {
 
     const dispath = useDispatch();
 
@@ -24,10 +24,10 @@ const Inputs: React.FC = () => {
     return (
         <form className="inputs_container">
            <input type="text" name="message" id="input_text" placeholder="Saissez votre message ..." />
-           <button onClick={handleClick}><BsSend /></button>
+           <button type="submit" onClick={handleClick}><BsSend /></button>
         </form>
     )
 }
 
 
-export default Inputs;
+export default FormSender;

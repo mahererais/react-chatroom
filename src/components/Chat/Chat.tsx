@@ -1,5 +1,5 @@
 import "./Chat.scss";
-import Inputs from "../Inputs/Inputs";
+import Inputs from "../FormSender/FormSender";
 
 import Messages from "../Messages/Messages";
 import { useSelector } from "react-redux";

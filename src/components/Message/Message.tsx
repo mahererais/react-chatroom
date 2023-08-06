@@ -1,6 +1,6 @@
 import React from "react";
 import './Message.scss';
-import store from "../../store";
+import store from "../../redux/store";
 import { MessageType } from "../../@types";
 
 type Props = {
