@@ -1,9 +1,8 @@
 import React from "react";
 import './Inputs.scss';
-import store from "../../store";
 import { useDispatch } from "react-redux";
 
-
+import { BsSend } from 'react-icons/bs';
 
 const Inputs: React.FC = () => {
 
@@ -25,7 +24,7 @@ const Inputs: React.FC = () => {
     return (
         <form className="inputs_container">
            <input type="text" name="message" id="input_text" placeholder="Saissez votre message ..." />
-           <button onClick={handleClick}>{">"}</button>
+           <button onClick={handleClick}><BsSend /></button>
         </form>
     )
 }

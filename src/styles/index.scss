@@ -8,13 +8,10 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: antiquewhite;
+  background-color: v.$bg-body-color;
+
 }
 
-h1, h2, h3 {
-  font-weight: normal;
-}
-
-img {
-  max-width: 100%;
+#root {
+  height: 100vh;
 }

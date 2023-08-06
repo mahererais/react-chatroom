@@ -6,6 +6,11 @@ type MessagesType = {
     count: number
 };
 
+type ActionType = {
+    type: string,
+    payload: MessageType
+}
+
 const initialState: MessagesType = {
     messages: [],
     count: 0,
@@ -18,7 +23,7 @@ const messagesReducer = createReducer(initialState, (reducer) => {
             // console.log("new message : ");
             // console.log(action.payload);
             
-            state.messages.push(action.payload as MessageType);
+            state.messages.push((action.payload) as MessageType);
             state.count += 1;
             
         })

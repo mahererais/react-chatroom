@@ -1,12 +1,20 @@
+@use '../../styles/variables' as v;
+
 .message_container {
     margin-bottom: 1rem;
     
     .author {
         padding: 0.5rem 0 ;
+        margin-bottom: 0.3rem;
     }
     
     .message {
-        padding: 1rem;
-        border: 1px solid #ccc;
+        padding: 1.2rem;
+        color: v.$bg-body-color;
+        
+        background-color: white;
+        border-radius: 99999px;
+
+        width: max-content;
     }
 }

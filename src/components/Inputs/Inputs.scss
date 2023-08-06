@@ -1,25 +1,53 @@
+@use '../../styles/variables'as v;
+
 .inputs_container {
     display: flex;
     gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
 
-    & > #input_text {
-        padding: 0.4rem;
+    height: v.$input-height;
+    width: 100%;
+
+    background-color: white;
+
+    padding: 0.5rem 1rem;
+
+    &>#input_text {
+        width: 100%;
+        font-size: 1.2rem;
+
+        &:focus,
+        & {
+            border: none;
+            outline: none;
+        }
     }
 
-    & > button {
-        color: wheat;
-        background-color: dodgerblue;
-        border: 1px solid white;
-        width: 35px;
+    &>button {
+        color: v.$bg-body-color;
+        background-color: transparent;
+        border: none;
         font-weight: bold;
-        aspect-ratio: 1;
 
         border-radius: 9999px;
+        padding: 0;
 
         transition: 0.2s ease;
 
+        width: calc(v.$input-height - 2*0.5rem);
+        aspect-ratio: 1;
+
+        &>svg {
+            width: 100%;
+            height: 100%;
+            fill: dodgerblue;
+        }
+
         &:hover {
-            background-color: rgb(23, 120, 216);
+            &>svg {
+                fill: v.$bg-body-color;
+            }
         }
     }
 }

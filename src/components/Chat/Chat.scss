@@ -1,0 +1,16 @@
+@use '../../styles/variables' as v;
+
+#chat {
+  margin: 0 auto;
+  max-width: 500px;
+  background-color: v.$chat-main-color;
+
+  height: 100%;
+
+  & > .messages {
+    height: calc(100% - v.$input-height);
+
+    padding: 1rem 2rem;
+  }
+
+}
