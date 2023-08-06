@@ -1,33 +1,28 @@
-import { createAction, createReducer } from "@reduxjs/toolkit";
-import { MessageType } from '../../@types'
+import { Reducer, createReducer } from '@reduxjs/toolkit';
+import { MessageType , ChatState} from '../../@types';
+import * as chatAction from '../action/chatAction';
 
-type MessagesType = {
-    messages: MessageType[],
-    count: number,
-    lastMessageTimestamp: number
+
+const initialState: ChatState = {
+  messages: [],
+  count: 0,
+  lastMessageTimestamp: new Date().getTime(),
 };
 
-// type ActionType = {
-//     type: string,
-//     payload: MessageType
-// }
-
-const initialState: MessagesType = {
-    messages: [],
-    count: 0,
-    lastMessageTimestamp: -1,
-}
-
-const chatReducer = createReducer(initialState, (builder) => {
-    builder.addCase(
-        createAction("message/new"),
-        (state, action) => {
-            
-            state.messages.push((action.payload) as MessageType);
-            state.count += 1;
-            state.lastMessageTimestamp = new Date().getTime()
-            
-        })
-});
+const chatReducer: Reducer<ChatState> = createReducer(
+  initialState,
+  (builder) => {
+    builder
+      .addCase(chatAction.newMessage, (state, action) => {
+        state.messages.push(action.payload as MessageType);
+      })
+      .addCase(chatAction.incrementCount, (state) => {
+        state.count += 1;
+      })
+      .addCase(chatAction.updateTimeStamp, (state) => {
+        state.lastMessageTimestamp = new Date().getTime();
+      });
+  }
+);
 
 export default chatReducer;

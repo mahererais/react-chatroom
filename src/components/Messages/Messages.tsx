@@ -1,23 +1,22 @@
 import React from "react";
 import "./Messages.scss";
-import { MessageType } from "../../@types";
+import { AppState, MessageType } from "../../@types";
 import { useSelector } from "react-redux";
 import Message from "../Message/Message";
 
 
 const Messages: React.FC = () => {
 
-  const messages: MessageType[] = useSelector((state) => state.chat.messages);
-  console.log(messages);
-
+  const messages: MessageType[] = useSelector((state: AppState) => state.chat.messages);
+  const count : number = useSelector((state: AppState) => state.chat.count);
+  const time : number = useSelector((state: AppState) => state.chat.lastMessageTimestamp);
 
   return (
-    <div className="messages">
-      {messages.map((message, key) => {
-        console.log(
-          `boucle sur la liste des messages - key:${key} - msg: ${message}`
-        );
-        return <Message key={key} index={key} />;
+    <div className="messages" >
+      <em>{count} message{count > 1 && "s"} trouvé{count > 1 && "s"}</em>
+      <em>Dernier message trouvé le {new Date(time).toLocaleString()}</em>
+      {messages.map((messageData, key) => {
+        return <Message key={key} messageData={messageData} />;
       })}
     </div>
   );

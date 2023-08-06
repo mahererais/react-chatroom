@@ -6,4 +6,10 @@
     padding: 1rem 2rem;
 
     overflow-y: auto;
+
+    & em  {
+        display: block;
+        font-style: italic;
+        color: #555
+    }
 }

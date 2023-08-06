@@ -1,33 +1,54 @@
-import React from "react";
-import './FormSender.scss';
+import React, { useState } from "react";
+import "./FormSender.scss";
 import { useDispatch } from "react-redux";
 
-import { BsSend } from 'react-icons/bs';
+import { BsSend } from "react-icons/bs";
+
+import * as ChatAction from '../../redux/action/chatAction';
 
 const FormSender: React.FC = () => {
+  const [inputText, setInputText] = useState("");
 
-    const dispath = useDispatch();
+  const dispatch = useDispatch();
 
-    const handleClick:React.MouseEventHandler = (e) => {
-        e.preventDefault();
-        const text = (document.getElementById("input_text") as HTMLInputElement).value;
-        dispath({
-            type: "message/new",
-            payload: {
-                author: "Super Chat", 
-                message: text
-            }
-        });
-        (document.getElementById("input_text") as HTMLInputElement).value = ""
-    }
+  const handleClick: React.FormEventHandler = (e) => {
+    e.preventDefault();
 
-    return (
-        <form className="inputs_container">
-           <input type="text" name="message" id="input_text" placeholder="Saissez votre message ..." />
-           <button type="submit" onClick={handleClick}><BsSend /></button>
-        </form>
-    )
-}
+    dispatch({
+      type: "chat/newMessage",
+      payload: {
+        author: "Super Chat",
+        message: inputText,
+        time: new Date().getTime(),
+      },
+    });
 
+    dispatch(ChatAction.incrementCount());
+    dispatch(ChatAction.updateTimeStamp());
+
+
+    setInputText("");
+  };
+
+  const onChangeHandler: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+    setInputText(e.target.value);
+  }
+
+  return (
+    <form className="inputs_container" onSubmit={handleClick}>
+      <input
+        type="text"
+        name="message"
+        id="input_text"
+        placeholder="Saissez votre message ..."
+        value={inputText}
+        onChange={onChangeHandler}
+      />
+      <button type="submit">
+        <BsSend />
+      </button>
+    </form>
+  );
+};
 
 export default FormSender;

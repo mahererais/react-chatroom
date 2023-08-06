@@ -1,28 +1,20 @@
 import React from "react";
 import './Message.scss';
-import store from "../../redux/store";
 import { MessageType } from "../../@types";
 
-type Props = {
-    index: number,
+type iProps = {
+    messageData: MessageType,
 }
 
-const Message: React.FC<Props> = ({index}) => {
-
-    console.log(index);
-
-    const {messages} = store.getState().chat;
-    
-
-    const message: MessageType = messages[index];
+const Message: React.FC<iProps> = ({messageData: message}) => {
 
     if (!message)
         return <></>;
 
     return (
         <div className="message_container">
-            <p className="author">{(message as MessageType).author}</p>
-            <p className="message">{(message as MessageType).message}</p>
+            <p className="author">{message.author}</p>
+            <p className="message">{message.message}</p>
         </div>
     )
 }
