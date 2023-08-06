@@ -2,33 +2,37 @@
 
 .message_container {
     margin-bottom: 1rem;
-        
+    width: 100%;
         
     .author {
-        padding: 0.5rem 1.2rem ;
+        padding: 0.5rem 0 ;
         margin-bottom: 0.5rem;
     }
     
     .message {
         padding: 1.2rem;
-        color: v.$bg-body-color;
+        color: white;
         
-        background-color: white;
-        border-radius: 99999px;
+        background-color: dodgerblue;
+        border-radius: 20px;
+        border-top-left-radius: 5px;
 
         width: max-content;
+        max-width: 90%;;
 
         position: relative;
+
+        margin-left: 20px;
         
         &::before {
             content: "";
             position: absolute;
             display: inline-block;
             bottom: calc(100% - 5px);
-            left: 20px;
+            left: 5px;
             height: 0;
             width: 0;
-            border-bottom: 15px solid white;
+            border-bottom: 15px solid dodgerblue;
             border-left: 15px solid transparent;
         }
     }

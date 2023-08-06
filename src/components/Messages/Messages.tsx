@@ -15,9 +15,11 @@ const Messages: React.FC = () => {
     <div className="messages" >
       <em>{count} message{count > 1 && "s"} trouvé{count > 1 && "s"}</em>
       <em>Dernier message trouvé le {new Date(time).toLocaleString()}</em>
-      {messages.map((messageData, key) => {
-        return <Message key={key} messageData={messageData} />;
-      })}
+      <section>
+        {messages.map((messageData, key) => {
+          return <Message key={key} messageData={messageData} />;
+        })}
+      </section>
     </div>
   );
 };

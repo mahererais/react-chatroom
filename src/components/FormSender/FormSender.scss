@@ -10,9 +10,9 @@
 
     background-color: white;
 
-    padding: 0.0rem 1rem;
+    padding: 0 0 0 1rem;
 
-    box-shadow: 0 0 5px rgba($color: #000000, $alpha: 0.5);
+    border-top: 1px solid #ddd;
 
     &>#input_text {
         width: 100%;
@@ -28,27 +28,30 @@
 
     &>button {
         color: v.$bg-body-color;
-        background-color: transparent;
+        background-color: dodgerblue;
         border: none;
         font-weight: bold;
 
-        border-radius: 9999px;
-        padding: 0;
+        padding: 15px;
 
         transition: 0.2s ease;
 
-        width: calc(v.$input-height - 2*0.8rem);
+        height: 100%;
         aspect-ratio: 1;
+
+        transition: 0.2s;
 
         &>svg {
             width: 100%;
             height: 100%;
-            fill: v.$bg-body-color;
+            fill: white;
+
+            transition: 0.2s;
         }
 
         &:hover {
             &>svg {
-                fill: v.$chat-main-color;
+                transform: scale(1.2);
             }
         }
     }
