@@ -1,0 +1,9 @@
+@use '../../styles/variables'as v;
+
+.messages {
+    height: calc(100% - v.$input-height);
+
+    padding: 1rem 2rem;
+
+    overflow-y: auto;
+}
