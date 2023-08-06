@@ -1,13 +1,29 @@
+import "./App.scss";
+import Inputs from "../Inputs/Inputs";
 
-import './App.css'
+import store from "./../../store";
+import Message from "../Message/Message";
+import { useSelector } from "react-redux";
+import { MessageType } from "../../@types";
 
-function App() {
-
+const App = () => {
+  // const { messages, count } = store.getState().messages;
+  const messages:MessageType[] = useSelector((state) => state.chat.messages);
+  const count = useSelector((state) => state.chat.count);
+  console.log(messages);
+  
   return (
-    <>
-      <div>maher RAIS</div>
-    </>
-  )
-}
+    
+      <div id="app">
+        {messages.map((message, key) => {
+            console.log(`boucle sur la liste des messages - key:${key} - msg: ${message}`);
+            return <Message key={key} index={key}/>
+        })}
+        <Inputs />
 
-export default App
+        <div style={{margin: '1rem'}}>{count}</div>
+      </div>
+  );
+};
+
+export default App;
