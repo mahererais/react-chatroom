@@ -15,7 +15,7 @@ const Setting = () => {
 
   return (
     <div className="setting_container">
-      <IoSettingsOutline onClick={onClick} />
+      <IoSettingsOutline onClick={onClick} style={{transform: displayModal ? 'rotate(120deg)': 'rotate(0deg)'}}/>
       <form className={displayModal ? "hide" : ""} onSubmit={onSubmit}>
         <input
           type="email"
