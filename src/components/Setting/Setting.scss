@@ -19,13 +19,16 @@
         border-radius: 50%;
         padding: var(--padding);
 
-        transition: 0.2s;
-        color: #555;
+        transition: 0.5s ease;
+        color: #888;
 
-        &:hover {
+        &:hover, &:active {
             color: black;
+        }
 
-            transform: rotate(90deg);
+        &:active {
+            transform: rotate(120deg);
+            transition: 0.0s ease;
         }
     }
 
