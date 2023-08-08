@@ -13,8 +13,10 @@ const Messages: React.FC = () => {
 
   return (
     <div className="messages" >
-      <em>{count} message{count > 1 && "s"} trouvé{count > 1 && "s"}</em>
-      <em>Dernier message trouvé le {new Date(time).toLocaleString()}</em>
+      <div className="messages_header">
+        <em>{count} message{count > 1 && "s"} trouvé{count > 1 && "s"}</em>
+        <em>Dernier message trouvé le {new Date(time).toLocaleString()}</em>
+      </div>
       <section>
         {messages.map((messageData, key) => {
           return <Message key={key} messageData={messageData} />;
