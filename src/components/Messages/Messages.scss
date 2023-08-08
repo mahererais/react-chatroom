@@ -33,5 +33,9 @@
         &:last-of-type {
             color: #0008; 
         }
+
+        &:nth-child(1) {
+            font-weight: 600;
+        }
     }
 }
