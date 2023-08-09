@@ -33,6 +33,7 @@ export const connectAction = createAsyncThunk(
     });
 
     response = await response.json();
+    
     console.log(response);
     return {
         username : response.pseudo,
@@ -42,3 +43,7 @@ export const connectAction = createAsyncThunk(
 );
 
 export const disconnectAction = createAction("auth/DISCONNECT");
+
+export const enableLoadingAction = createAction("auth/ENABLE_LOADING");
+
+export const disableLoadingAction = createAction("auth/DISABLE_LOADING");

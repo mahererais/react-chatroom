@@ -1,15 +1,23 @@
 import React, { useCallback, useState } from "react";
 import "./Setting.scss";
 import { IoSettingsOutline } from "react-icons/io5";
-import { useDispatch } from "react-redux";
-import { connectAction } from "../../redux/action/authAction";
+import { useDispatch, useSelector } from "react-redux";
+import { connectAction, disableLoadingAction } from "../../redux/action/authAction";
 import { AppDispach } from "../../redux/store";
+import { AppState } from "../../@types";
 
 
 const Setting = () => {
   const [displayModal, setDisplayModal] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {email: userEmail, username: userName} = useSelector((state: AppState) => {
+      return state.auth.connectedUser;
+  });
+  // == loading.io/css
+  const isLoading = useSelector((state: AppState) => {
+    return state.auth.isLoadind;
+  });
 
   const dispatch: AppDispach = useDispatch();
 
@@ -41,6 +49,9 @@ const Setting = () => {
     
       
     dispatch(connectAction({email, password}));
+    setTimeout(() => {
+      dispatch(disableLoadingAction());
+    }, 1500);
 
   };
 
@@ -51,36 +62,50 @@ const Setting = () => {
     setPassword((e.target as HTMLInputElement).value);
   }
 
+  const displayPicker = () => {
+    if (isLoading) {
+      return (
+        <div className="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> 
+      );
+    }
+
+    if (!userEmail && !userName) {
+      return (
+        <form className={displayModal ? "hide" : ""} onSubmit={onSubmit}>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Entrez votre email"
+                required
+                value={email}
+                onChange={handleEmailChange}
+                onPaste={handleEmailChange}
+                onCut={handleEmailChange}
+                onCopy={handleEmailChange}
+                />
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Entrez votre mot de passe"
+                required
+                value={password}
+                onChange={handlePasswordChange}
+                onPaste={handlePasswordChange}
+                onCut={handlePasswordChange}
+                onCopy={handlePasswordChange}
+              />
+              <button type="submit">Envoyer</button>
+            </form>
+      );
+    }
+  }
+
   return (
     <div className="setting_container">
       <IoSettingsOutline onClick={onClick} style={{transform: displayModal ? 'rotate(120deg)': 'rotate(0deg)'}}/>
-      <form className={displayModal ? "hide" : ""} onSubmit={onSubmit}>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Entrez votre email"
-          required
-          value={email}
-          onChange={handleEmailChange}
-          onPaste={handleEmailChange}
-          onCut={handleEmailChange}
-          onCopy={handleEmailChange}
-          />
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Entrez votre mot de passe"
-          required
-          value={password}
-          onChange={handlePasswordChange}
-          onPaste={handlePasswordChange}
-          onCut={handlePasswordChange}
-          onCopy={handlePasswordChange}
-        />
-        <button type="submit">Envoyer</button>
-      </form>
+      {displayPicker()}
     </div>
   );
 };

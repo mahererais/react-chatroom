@@ -21,9 +21,11 @@
 
         display: flex;
         flex-direction: column-reverse;
-    }
 
+    }
+    
     & em  {
+        font-size: 0.7rem;
         display: block;
         font-style: italic;
         color: #000b;
