@@ -1,11 +1,17 @@
 import React, { useCallback, useState } from "react";
 import "./Setting.scss";
 import { IoSettingsOutline } from "react-icons/io5";
+import { useDispatch } from "react-redux";
+import { connectAction } from "../../redux/action/authAction";
+import { AppDispach } from "../../redux/store";
+
 
 const Setting = () => {
   const [displayModal, setDisplayModal] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const dispatch: AppDispach = useDispatch();
 
   const onClick = useCallback(() => {
     setDisplayModal((prevStat) => !prevStat);
@@ -15,23 +21,26 @@ const Setting = () => {
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    fetch('http://localhost:3001/login', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify( {
-        email: email,
-        password: password,
-      })
-    })
-      .then ( response =>  response.json())
-      .then (data => {
-        console.log(data);
+    // fetch('http://localhost:3001/login', {
+    //   method: 'POST',
+    //   headers: {
+    //     'content-type': 'application/json',
+    //   },
+    //   body: JSON.stringify( {
+    //     email: email,
+    //     password: password,
+    //   })
+    // })
+    //   .then ( response =>  response.json())
+    //   .then (data => {
+    //     console.log(data);
 
-      })
-      .catch(error => console.error(error));
+    //   })
+    //   .catch(error => console.error(error));
+
+    
       
+    dispatch(connectAction({email, password}));
 
   };
 
