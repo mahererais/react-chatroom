@@ -18,6 +18,9 @@ const authReducer : Reducer <AuthState> = createReducer(
             .addCase(connectAction.pending, (state) => {
                 state.isLoadind = true;
             })
+            .addCase(connectAction.rejected, () => {
+                window.alert("Connexion impossible: Identifiants invalides")
+            })
             .addCase(connectAction.fulfilled, (state, action) => {
                 state.isLoadind = false;
                 state.connectedUser.email = (action.payload as ConnectThunk).email;
