@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Messages.scss";
 import { AppState, MessageType } from "../../@types";
 import { useSelector } from "react-redux";
@@ -11,6 +11,22 @@ const Messages: React.FC = () => {
   const count : number = useSelector((state: AppState) => state.chat.count);
   const time : number = useSelector((state: AppState) => state.chat.lastMessageTimestamp);
 
+  const email = useSelector((state: AppState) => state.auth.connectedUser.email);
+  const [messageColor, setMessageColor] = useState("");
+
+  useEffect(() => {
+    if (email) {
+      fetch(`http://locahost:3001/them/${email}`)
+      .then(response => response.json())
+      .then(data => {
+        setMessageColor(data.color)
+      })
+      .catch(error => {console.error(error);})
+    }else{
+      setMessageColor("");
+    }
+  }, [email]);
+
   return (
     <div className="messages" >
       <div className="messages_header">
@@ -19,7 +35,7 @@ const Messages: React.FC = () => {
       </div>
       <section>
         {messages.map((messageData, key) => {
-          return <Message key={key} messageData={messageData} />;
+          return <Message key={key} messageData={messageData} color={messageColor || "dodgerblue"}/>;
         })}
       </section>
     </div>

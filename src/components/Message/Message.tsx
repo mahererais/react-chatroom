@@ -4,9 +4,10 @@ import { MessageType } from "../../@types";
 
 type iProps = {
     messageData: MessageType,
+    color: string
 }
 
-const Message: React.FC<iProps> = ({messageData: message}) => {
+const Message: React.FC<iProps> = ({messageData: message, color}) => {
 
     if (!message)
         return <></>;
@@ -18,7 +19,7 @@ const Message: React.FC<iProps> = ({messageData: message}) => {
     return (
         <div className={`message_container ${message.author === "Me" ? "right" : ""}`}>
             <p className="author">{message.author}</p>
-            <p className="message" style={{backgroundColor:message.color}}>{message.message}</p>
+            <p className="message" style={{backgroundColor:color}}>{message.message}</p>
         </div>
     )
 }
