@@ -10,7 +10,7 @@ import { AppState } from "../../@types";
 const FormSender: React.FC = () => {
   const [inputText, setInputText] = useState("");
 
-  const {email, username} = useSelector((state:AppState) => state.auth.connectedUser);
+  const {email, username, color} = useSelector((state:AppState) => state.auth.connectedUser);
 
   const dispatch = useDispatch();
 
@@ -31,6 +31,7 @@ const FormSender: React.FC = () => {
         author: email && username ? username : "anonyme",
         message: inputText,
         time: new Date().getTime(),
+        color: color ?? "dodgerblue",
       })
     );
 

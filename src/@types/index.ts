@@ -2,7 +2,7 @@ export type MessageType = {
     author: string,
     message: string,
     time: number,
-     color?: string,
+    color?: string,
 }
 
 export type ChatState = {
@@ -15,6 +15,7 @@ export type AuthState = {
     connectedUser : {
         username: string, // email de l'utilisateur connecté
         email: string, // pseudo de l'utilisateur connecté
+        color? : string,
     },
     isLoadind: boolean, // indique que l'on est en train de se connecter
 }

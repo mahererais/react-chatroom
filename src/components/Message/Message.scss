@@ -9,6 +9,7 @@
     .author {
         padding: 0.5rem ;
         margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
         margin-left: 0.5rem;
 
         background-color: v.$bg-body-color;
@@ -18,12 +19,13 @@
 
         font-size: 0.8rem;
     }
-    
+
     .message {
         padding: 1.2rem;
         color: white;
         
         background-color: dodgerblue;
+        --color : background-color;
         border-radius: 10px;
         border-top-left-radius: 5px;
         
@@ -36,17 +38,17 @@
 
         box-shadow: 0 0 5px #000a;
         
-        &::before {
-            content: "";
-            position: absolute;
-            display: inline-block;
-            bottom: calc(100% - 5px);
-            left: 5px;
-            height: 0;
-            width: 0;
-            border-bottom: 15px solid dodgerblue;
-            border-left: 15px solid transparent;
-        }
+        // &::before {
+        //     content: "";
+        //     position: absolute;
+        //     display: inline-block;
+        //     bottom: calc(100% - 5px);
+        //     left: 5px;
+        //     height: 0;
+        //     width: 0;
+        //     border-bottom: 15px solid dodgerblue;
+        //     border-left: 15px solid transparent;
+        // }
     }
 
     &.right {
