@@ -22,17 +22,20 @@ const authReducer : Reducer <AuthState> = createReducer(
                 //window.alert("Connexion impossible: Identifiants invalides")
                 console.error("Connexion impossible: Identifiants invalides");
                 //****state.isLoadind = false;
-                state.connectedUser.email = "maher@gmail.com";
-                state.connectedUser.username = "mahere88";
+                state.connectedUser.email = "";
+                state.connectedUser.username = "";
+                state.connectedUser.color = "";
             })
             .addCase(connectAction.fulfilled, (state, action) => {
                 //***state.isLoadind = false;
                 state.connectedUser.email = (action.payload as ConnectThunk).email;
                 state.connectedUser.username = (action.payload as ConnectThunk).username;
+                state.connectedUser.color = (action.payload as ConnectThunk).color;
             })
             .addCase(disconnectAction, (state) => {
                 state.connectedUser.email = "";
                 state.connectedUser.username = "";
+                state.connectedUser.color = undefined;
                 state.isLoadind = false;
             })
             .addCase(enableLoadingAction, (state) => {

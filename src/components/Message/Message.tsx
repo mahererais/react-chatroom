@@ -7,19 +7,18 @@ type iProps = {
     color: string
 }
 
-const Message: React.FC<iProps> = ({messageData: message, color}) => {
+const Message: React.FC<iProps> = ({messageData: message, color = null}) => {
 
     if (!message)
         return <></>;
 
 
-    console.log(message.color);
+    color;
     
-
     return (
         <div className={`message_container ${message.author === "Me" ? "right" : ""}`}>
             <p className="author">{message.author}</p>
-            <p className="message" style={{backgroundColor:color}}>{message.message}</p>
+            <p className="message" style={{backgroundColor: message.color}}>{message.message}</p>
         </div>
     )
 }

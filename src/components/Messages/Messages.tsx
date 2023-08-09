@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+//import React, { useEffect, useState } from "react";
 import "./Messages.scss";
 import { AppState, MessageType } from "../../@types";
 import { useSelector } from "react-redux";
@@ -11,21 +11,22 @@ const Messages: React.FC = () => {
   const count : number = useSelector((state: AppState) => state.chat.count);
   const time : number = useSelector((state: AppState) => state.chat.lastMessageTimestamp);
 
-  const email = useSelector((state: AppState) => state.auth.connectedUser.email);
-  const [messageColor, setMessageColor] = useState("");
+  const messageColor = useSelector((state: AppState) => state.auth.connectedUser.color);
+  //const email = useSelector((state: AppState) => state.auth.connectedUser.email);
+  //const [messageColor, setMessageColor] = useState("");
 
-  useEffect(() => {
-    if (email) {
-      fetch(`http://locahost:3001/them/${email}`)
-      .then(response => response.json())
-      .then(data => {
-        setMessageColor(data.color)
-      })
-      .catch(error => {console.error(error);})
-    }else{
-      setMessageColor("");
-    }
-  }, [email]);
+  // useEffect(() => {
+  //   if (email) {
+  //     fetch(`http://localhost:3001/theme/${email}`)
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       setMessageColor(data.color)
+  //     })
+  //     .catch(error => {console.error(error);})
+  //   }else{
+  //     setMessageColor("");
+  //   }
+  // }, [email]);
 
   return (
     <div className="messages" >

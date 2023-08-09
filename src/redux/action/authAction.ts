@@ -3,15 +3,17 @@ import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 export type ConnectThunk = {
     email: string,
     username: string,
+    color?: string
 }
 
 interface CustomResponse extends Response {
     pseudo?: string,
+    color?: string,
 }
 
 type ConnectPayload = {
   email: string;
-  password: string;
+  password: string,
 };
 
 // ConnectPayload c'est le type du payload
@@ -38,6 +40,7 @@ export const connectAction = createAsyncThunk(
     return {
         username : response.pseudo,
         email: payload.email,
+        color: response.color,
     };
   }
 );
