@@ -2,9 +2,11 @@ import React, { useCallback, useState } from "react";
 import "./Setting.scss";
 import { IoSettingsOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
-import { connectAction, disableLoadingAction } from "../../redux/action/authAction";
+import { connectAction, disableLoadingAction, disconnectAction } from "../../redux/action/authAction";
 import { AppDispach } from "../../redux/store";
 import { AppState } from "../../@types";
+
+import {RiLogoutCircleRFill} from "react-icons/ri";
 
 
 const Setting = () => {
@@ -62,6 +64,10 @@ const Setting = () => {
     setPassword((e.target as HTMLInputElement).value);
   }
 
+  const handleDisconnect = () => {
+    dispatch(disconnectAction());
+  }
+
   const displayPicker = () => {
     if (isLoading) {
       return (
@@ -71,6 +77,8 @@ const Setting = () => {
 
     if (!userEmail && !userName) {
       return (
+        <>
+        <IoSettingsOutline onClick={onClick} style={{transform: displayModal ? 'rotate(120deg)': 'rotate(0deg)'}}/>
         <form className={displayModal ? "hide" : ""} onSubmit={onSubmit}>
               <input
                 type="email"
@@ -95,16 +103,25 @@ const Setting = () => {
                 onPaste={handlePasswordChange}
                 onCut={handlePasswordChange}
                 onCopy={handlePasswordChange}
-              />
+                />
               <button type="submit">Envoyer</button>
             </form>
+                </>
       );
     }
+
+    return (
+        <>
+          <h5>{userName}</h5>
+          <h5>{userEmail}</h5>
+          <RiLogoutCircleRFill id="logout_btn" onClick={handleDisconnect}/>
+        </>
+    );
+
   }
 
   return (
-    <div className="setting_container">
-      <IoSettingsOutline onClick={onClick} style={{transform: displayModal ? 'rotate(120deg)': 'rotate(0deg)'}}/>
+    <div className="setting_container" style={{ gap: userEmail && userName ? '0rem' : '2rem' }}>
       {displayPicker()}
     </div>
   );

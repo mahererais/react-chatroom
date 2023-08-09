@@ -70,6 +70,27 @@
         }
     }
 
+    & > h5 {
+      font-size: 0.7rem;
+      color: #888;
+      font-weight: 600;
+
+      &:nth-of-type(1) {
+        padding-top: 0.5rem;
+      }
+    }
+
+    & #logout_btn {
+      padding: 0.2rem;
+      font-size: 2rem;
+
+      margin-top: 0.1rem;
+
+      &:hover {
+        scale: initial;
+        color: dodgerblue;
+      }
+    }
 }
 
 /* == https://loading.io/css/ */

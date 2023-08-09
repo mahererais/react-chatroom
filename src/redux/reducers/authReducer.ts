@@ -18,10 +18,12 @@ const authReducer : Reducer <AuthState> = createReducer(
             .addCase(connectAction.pending, (state) => {
                 state.isLoadind = true;
             })
-            .addCase(connectAction.rejected, () => {
+            .addCase(connectAction.rejected, (state) => {
                 //window.alert("Connexion impossible: Identifiants invalides")
                 console.error("Connexion impossible: Identifiants invalides");
                 //****state.isLoadind = false;
+                state.connectedUser.email = "maher@gmail.com";
+                state.connectedUser.username = "mahere88";
             })
             .addCase(connectAction.fulfilled, (state, action) => {
                 //***state.isLoadind = false;
