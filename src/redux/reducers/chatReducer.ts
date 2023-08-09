@@ -5,7 +5,7 @@ import * as chatAction from '../action/chatAction';
 
 const initialState: ChatState = {
   messages: [{
-    author: 'anonyme',
+    author: 'Me',
     message: "voici mon message secret",
     time: 123455465,
   }],

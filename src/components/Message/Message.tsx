@@ -12,7 +12,7 @@ const Message: React.FC<iProps> = ({messageData: message}) => {
         return <></>;
 
     return (
-        <div className={`message_container ${message.author === "anonyme" ? "right" : ""}`}>
+        <div className={`message_container ${message.author === "Me" ? "right" : ""}`}>
             <p className="author">{message.author}</p>
             <p className="message">{message.message}</p>
         </div>

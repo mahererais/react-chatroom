@@ -2,7 +2,7 @@ export type MessageType = {
     author: string,
     message: string,
     time: number,
-    color?: string,
+     color?: string,
 }
 
 export type ChatState = {
