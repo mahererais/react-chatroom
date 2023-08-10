@@ -4,12 +4,8 @@ import * as chatAction from '../action/chatAction';
 
 
 const initialState: ChatState = {
-  messages: [{
-    author: 'Me',
-    message: "voici mon message initial - (vas dans 'chatReducer.ts:9' si tu veux me modifier)",
-    time: 123455465,
-  }],
-  count: 1,
+  messages: [],
+  count: 0,
   lastMessageTimestamp: new Date().getTime(),
 };
 

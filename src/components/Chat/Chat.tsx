@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 const App = () => {
   
-  useEffect(() => listenToNewMessages());
+  useEffect(() => listenToNewMessages(), []);
   
 
   return (

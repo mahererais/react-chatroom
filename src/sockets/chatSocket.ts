@@ -16,10 +16,12 @@ export const sendMessageToSocket = (author: string, message: string, time:number
 }
 
 export const listenToNewMessages =  () => {
-    socket.on('send_message', (data) => {
-        console.log(data);
-        store.dispatch(newMessage(data));
-        store.dispatch(incrementCount());
-        store.dispatch(updateTimeStamp());
-    })
+    socket
+        .on('send_message', (data) => {
+            console.log(data);
+            store.dispatch(newMessage(data));
+            store.dispatch(incrementCount());
+            store.dispatch(updateTimeStamp());
+        })
+        
 }

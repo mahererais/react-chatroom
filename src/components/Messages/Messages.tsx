@@ -12,21 +12,7 @@ const Messages: React.FC = () => {
   const time : number = useSelector((state: AppState) => state.chat.lastMessageTimestamp);
 
   const messageColor = useSelector((state: AppState) => state.auth.connectedUser.color);
-  //const email = useSelector((state: AppState) => state.auth.connectedUser.email);
-  //const [messageColor, setMessageColor] = useState("");
 
-  // useEffect(() => {
-  //   if (email) {
-  //     fetch(`http://localhost:3001/theme/${email}`)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       setMessageColor(data.color)
-  //     })
-  //     .catch(error => {console.error(error);})
-  //   }else{
-  //     setMessageColor("");
-  //   }
-  // }, [email]);
 
   return (
     <div className="messages" >
