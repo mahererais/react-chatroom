@@ -25,3 +25,7 @@ export const listenToNewMessages =  () => {
         })
         
 }
+
+export const closeListenToMessageSocket = () => {
+    socket.off('send_message');
+};
