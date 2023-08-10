@@ -4,7 +4,8 @@ Server Chatroom
 $ cd server
 $ install yarn
 ## lancer le server sur le port par defaut 3001
-$ node server.js 
+$ node server.js  
+## sinon $ node .
 ## sinon lancer la commander d'apres (pas testé)
 $ yarn start : http://localhost:3001
 ```

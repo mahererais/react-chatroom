@@ -8,6 +8,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Server = require('http').Server;
 const socket = require('socket.io');
+const { log } = require('console');
 
 /*
  * Vars
@@ -132,6 +133,8 @@ io.on('connection', (ws) => {
     console.log('>> socket.io - connected');
     ws.on('send_message', (message) => {
         // eslint-disable-next-line no-plusplus
+        console.log("Message reçu");
+        console.log(message);
         message.id = ++id;
         io.emit('send_message', message);
     });
