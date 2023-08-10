@@ -68,7 +68,7 @@
             border: none;
         }
 
-        transition: transform 0.25s ease-out ;
+        transition: transform 0.5s ease ;
         &.hide {
             transform: translateX(calc(100% + 2rem));
         }
