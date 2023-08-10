@@ -12,3 +12,10 @@ export const sendMessage = (author: string, message: string, time:number,color?:
     });
 
 }
+
+export const listenToNewMessages =  () => {
+    socket.on('send_message', (data) => {
+        console.log(data);
+        
+    })
+}
