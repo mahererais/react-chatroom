@@ -1,6 +1,8 @@
 import { socket } from ".";
+import { incrementCount, newMessage, updateTimeStamp } from "../redux/action/chatAction";
+import store from "../redux/store";
 
-export const sendMessage = (author: string, message: string, time:number,color?: string) => {
+export const sendMessageToSocket = (author: string, message: string, time:number,color?: string) => {
 
     // = 'send message' est le tube d'ecoute du server
     // = voir server/server.js ligne 133
@@ -16,6 +18,8 @@ export const sendMessage = (author: string, message: string, time:number,color?:
 export const listenToNewMessages =  () => {
     socket.on('send_message', (data) => {
         console.log(data);
-        
+        store.dispatch(newMessage(data));
+        store.dispatch(incrementCount());
+        store.dispatch(updateTimeStamp());
     })
 }
