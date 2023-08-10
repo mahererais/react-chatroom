@@ -6,6 +6,7 @@ import { BsSend } from "react-icons/bs";
 
 import * as ChatAction from "../../redux/action/chatAction";
 import { AppState } from "../../@types";
+import { sendMessage } from "../../sockets/chatSocket";
 
 const FormSender: React.FC = () => {
   const [inputText, setInputText] = useState("");
@@ -26,13 +27,19 @@ const FormSender: React.FC = () => {
     //   },
     // });
     // = c'est l'equivalent de la ligne au dessus
-    dispatch(
-      ChatAction.newMessage({
-        author: email && username ? username : "anonyme",
-        message: inputText,
-        time: new Date().getTime(),
-        color: color ?? "dodgerblue",
-      })
+    // dispatch(
+    //   ChatAction.newMessage({
+    //     author: email && username ? username : "anonyme",
+    //     message: inputText,
+    //     time: new Date().getTime(),
+    //     color: color ?? "dodgerblue",
+    //   })
+    // );
+    sendMessage(
+        email && username ? username : "anonyme",
+        inputText,
+        new Date().getTime(),
+        color ?? "dodgerblue",
     );
 
     dispatch(ChatAction.incrementCount());

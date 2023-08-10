@@ -1,8 +1,9 @@
 import "./Chat.scss";
-import Inputs from "../FormSender/FormSender";
 
+import Inputs from "../FormSender/FormSender";
 import Messages from "../Messages/Messages";
 import Setting from "../Setting/Setting";
+
 
 const App = () => {
   
