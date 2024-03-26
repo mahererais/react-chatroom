@@ -39,7 +39,7 @@ const Setting = () => {
   };
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement> | React.ClipboardEvent<HTMLInputElement>) => {
-    setEmail((e.target as HTMLInputElement).value);
+    setEmail((e.target as HTMLInputElement).value.toLowerCase());
   }
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement> | React.ClipboardEvent<HTMLInputElement>) => {
     setPassword((e.target as HTMLInputElement).value);
