@@ -1,20 +1,21 @@
 # Installation
 
 - ***With Docker***
-  - `docker-compose up -d`
+  - `. ./exportEnv.sh`
+  - `make install`
 
 
 - ***Without Docker***
-
+  - `. ./exportEnv.sh`
   - server
     - `cd server`
     - `npm install --force`
     - `node serer.js`
 
   - client
-
+    - `cd client`
     - `npm install --force`
-    - `npm run dev`
+    - `npm run dev $CHAT_CLIENT_PORT`
   
 <hr>
 
