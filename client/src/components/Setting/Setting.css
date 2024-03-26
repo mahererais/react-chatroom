@@ -1,0 +1,155 @@
+.setting_container {
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 2rem;
+  --padding: 8px;
+  top: var(--padding);
+  right: var(--padding);
+  cursor: pointer;
+}
+.setting_container > svg {
+  font-size: 2.5rem;
+  background-color: #fafafa;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  padding: var(--padding);
+  transition: 0.5s ease;
+  color: #888;
+}
+.setting_container > svg:hover, .setting_container > svg:active {
+  scale: 1.1;
+}
+.setting_container > form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  transition: transform 0.5s ease;
+}
+.setting_container > form > * {
+  outline: none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.setting_container > form > input {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  opacity: 0.7;
+}
+.setting_container > form > input:focus {
+  opacity: initial;
+}
+.setting_container > form > button {
+  background-color: dodgerblue;
+  color: white;
+  border: none;
+}
+.setting_container > form.hide {
+  transform: translateX(calc(100% + 2rem));
+}
+.setting_container > h5 {
+  font-size: 0.7rem;
+  color: #888;
+}
+.setting_container > h5:nth-of-type(1) {
+  font-weight: 600;
+  padding-top: 0.5rem;
+}
+.setting_container #logout_btn {
+  padding: 0.2rem;
+  font-size: 2rem;
+  margin-top: 0.1rem;
+  color: dodgerblue;
+}
+.setting_container #logout_btn:hover {
+  scale: initial;
+  rotate: 90deg;
+}
+
+/* == https://loading.io/css/ */
+.lds-grid {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-grid div {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: dodgerblue;
+  animation: lds-grid 1.2s linear infinite;
+}
+
+.lds-grid div:nth-child(1) {
+  top: 8px;
+  left: 8px;
+  animation-delay: 0s;
+}
+
+.lds-grid div:nth-child(2) {
+  top: 8px;
+  left: 32px;
+  animation-delay: -0.4s;
+}
+
+.lds-grid div:nth-child(3) {
+  top: 8px;
+  left: 56px;
+  animation-delay: -0.8s;
+}
+
+.lds-grid div:nth-child(4) {
+  top: 32px;
+  left: 8px;
+  animation-delay: -0.4s;
+}
+
+.lds-grid div:nth-child(5) {
+  top: 32px;
+  left: 32px;
+  animation-delay: -0.8s;
+}
+
+.lds-grid div:nth-child(6) {
+  top: 32px;
+  left: 56px;
+  animation-delay: -1.2s;
+}
+
+.lds-grid div:nth-child(7) {
+  top: 56px;
+  left: 8px;
+  animation-delay: -0.8s;
+}
+
+.lds-grid div:nth-child(8) {
+  top: 56px;
+  left: 32px;
+  animation-delay: -1.2s;
+}
+
+.lds-grid div:nth-child(9) {
+  top: 56px;
+  left: 56px;
+  animation-delay: -1.6s;
+}
+
+@keyframes lds-grid {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}/*# sourceMappingURL=Setting.css.map */

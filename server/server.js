@@ -21,28 +21,33 @@ const io = socket(server, {
         methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
     },
 });
-const port = 3001;
+
+const dotenv = require('dotenv');
+dotenv.config();
+
+const port = process.env.CHAT_SERVER_PORT || 3001;
+console.log("port numero " + port);
 
 const db = {
     users: {
         'maher@gmail.com': {
-            password: '123456',
+            password: 'maher',
             username: 'maher',
             color: '#FFB400',
         },
-        'bouclierman@herocorp.io': {
-            password: 'jennifer',
-            username: 'John',
+        'tata@gmail.com': {
+            password: 'tata',
+            username: 'tata',
             color: '#c23616',
         },
-        'acidman@herocorp.io': {
-            password: 'fructis',
-            username: 'Burt',
+        'toto@gmail.com': {
+            password: 'toto',
+            username: 'toto',
             color: '#009432',
         },
-        'captain.sportsextremes@herocorp.io': {
-            password: 'pingpong',
-            username: 'Karin',
+        'titi@gmail.com': {
+            password: 'titi',
+            username: 'titi',
             color: '#f0f',
         },
     },
@@ -77,6 +82,14 @@ app.get('/', (request, response) => {
         <li><code>POST http://localhost:${port}/login</code></li>
         <li><code>POST http://localhost:${port}/forgot</code></li>
         <li><code>GET http://localhost:${port}/theme/{email}</code></li>
+      </ul>
+      <br>
+      <p>liste des comptes utilisateurs</p>
+      <ul>
+        <li><code><p style="margin: 0">id: maher@gmail.com</p> <p style="margin: 0">pwd: maher</p></code></li>
+        <li><code><p style="margin: 0">id: tata@gmail.com</p> <p style="margin: 0">pwd: tata</p></code></li>
+        <li><code><p style="margin: 0">id: toto@gmail.com</p> <p style="margin: 0">pwd: toto</p></code></li>
+        <li><code><p style="margin: 0">id: titi@gmail.com</p> <p style="margin: 0">pwd: titi</p></code></li>
       </ul>
     </div>
   `);

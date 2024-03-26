@@ -30,25 +30,6 @@ const Setting = () => {
   // const onSubmit = (e: React.MouseEvent<HTMLFormElement>) => {
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    // fetch('http://localhost:3001/login', {
-    //   method: 'POST',
-    //   headers: {
-    //     'content-type': 'application/json',
-    //   },
-    //   body: JSON.stringify( {
-    //     email: email,
-    //     password: password,
-    //   })
-    // })
-    //   .then ( response =>  response.json())
-    //   .then (data => {
-    //     console.log(data);
-
-    //   })
-    //   .catch(error => console.error(error));
-
-    
       
     dispatch(connectAction({email, password}));
     setTimeout(() => {

@@ -1,0 +1,48 @@
+.message_container {
+  margin-bottom: 1rem;
+  width: 100%;
+  padding: 0 0.5rem;
+}
+.message_container .author,
+.message_container .timer {
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0.5rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  color: #555;
+  font-style: italic;
+}
+.message_container .timer {
+  transition: 0.2s ease-out, opacity 0.2s ease-out 0.2s;
+  font-size: 0.6rem;
+  height: 10px;
+  margin-left: 0.9rem;
+}
+.message_container .timer.hide {
+  transition: 0.2s ease-out 0.2s, opacity 0.2s ease-out;
+  height: 0;
+  opacity: 0;
+}
+.message_container .message {
+  padding: 1.2rem;
+  color: white;
+  background-color: dodgerblue;
+  --color: background-color;
+  border-radius: 10px;
+  border-top-left-radius: 2px;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 90%;
+  position: relative;
+  margin-left: 0.5rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6666666667);
+}
+.message_container.right > .author, .message_container.right > .timer, .message_container.right > .message {
+  margin-right: 0;
+  margin-left: auto;
+}
+.message_container.right > .message {
+  border-radius: 10px;
+  border-bottom-right-radius: 2px;
+}/*# sourceMappingURL=Message.css.map */

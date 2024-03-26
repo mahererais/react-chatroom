@@ -5,4 +5,6 @@ import { Socket, io } from "socket.io-client";
 // Pour ce faire, on se connecte via la methode 'io' de la librairie 
 // 'socket.io-client' en lui founissant l'adresse sur laquelle 
 // serveur socket.io ecoute 
-export const socket:Socket = io('http://localhost:3001')
+const port = import.meta.env.VITE_chat_server_port;
+
+export const socket:Socket = io(`http://localhost${port ? ':'+port: ''}`)

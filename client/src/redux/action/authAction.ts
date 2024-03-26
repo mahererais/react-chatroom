@@ -16,6 +16,8 @@ type ConnectPayload = {
   password: string,
 };
 
+const port = import.meta.env.VITE_chat_server_port;
+
 // ConnectPayload c'est le type du payload
 export const connectAction_v1 = createAction<ConnectPayload>("auth/CONNECT");
 
@@ -23,7 +25,7 @@ export const connectAction_v1 = createAction<ConnectPayload>("auth/CONNECT");
 export const connectAction = createAsyncThunk(
   "auth/CONNECT",
   async (payload: ConnectPayload) => {
-    let response: CustomResponse = await fetch("http://localhost:3001/login", {
+    let response: CustomResponse = await fetch(`http://localhost${port ? ':'+port : ''}/login`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

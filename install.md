@@ -2,7 +2,7 @@
 ## `https://vitejs.dev/guide/`
 
 ### pour installer le model react "vite" facilement
-### il va nous mettre en place bundler (on va avoir tout les fichiers necessaire pour react, src, import de createRoot ...)
+### il va nous mettre en place un bundle (on va avoir tout les fichiers necessaire pour react, src, import de createRoot ...)
 ```bash
 $ npm create vite@latest
 $ cd react-test
