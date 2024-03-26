@@ -23,7 +23,7 @@ const io = socket(server, {
 });
 
 const dotenv = require('dotenv');
-dotenv.config();
+dotenv.config({ path: `.env.local`, override: true });
 
 const port = process.env.CHAT_SERVER_PORT || 3001;
 console.log("port numero " + port);
