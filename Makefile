@@ -1,3 +1,4 @@
+ALIAS_CHAT_APP ?= .
 
 install:
 	make build start 
@@ -25,4 +26,5 @@ node-install:
 	docker exec node-server-chat bash -c "npm install --force"
 
 deploy:
-	docker exec node-client-chat bash -c "npm run build"
+	docker container start node-server-chat
+	docker exec node-client-chat bash -c "npm run build ${ALIAS_CHAT_APP}"

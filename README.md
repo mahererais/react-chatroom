@@ -31,6 +31,7 @@
   export CHAT_SERVER_PORT=<changeMe!-3001>
 
   VITE_host=<changeMe!-localhost>
+  ALIAS_CHAT_APP=/chat
 
   echo CHAT_SERVER_PORT=$CHAT_SERVER_PORT > server/.env.local
 
@@ -55,3 +56,9 @@ you have to declare your ***environment*** on a script `exportEnv.sh` and execut
   - tata@gmail.com / tata
   - toto@gmail.com / toto
   - titi@gmail.com / titi
+
+
+# deployment
+
+- `make deploy`
+- `index.html` located on `dist` directory 
