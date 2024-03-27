@@ -46,8 +46,8 @@ you have to declare your ***environment*** on a script `exportEnv.sh` and execut
 
 # How to launch
 
-- open your browser on `http://localhost:5190/`
-- open an other browser on `http://localhost:5190/`
+- open your browser on `http://localhost:5173/`
+- open an other browser on `http://localhost:5173/`
 - server page help 
   - `http://localhost:3001`
 
