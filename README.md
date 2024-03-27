@@ -29,7 +29,7 @@
   # cat ./exportEnv.sh 
   export CHAT_CLIENT_PORT=<changeMe!> # default value 5173
   export CHAT_SERVER_PORT=<changeMe!> # default value 3001
-  export ALIAS_CHAT_APP=<changeMe!>   # default value .
+  export ALIAS_CHAT_APP=<changeMe!>   # default value ./
 
   VITE_host=<changeMe!-localhost>
 

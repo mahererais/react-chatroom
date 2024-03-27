@@ -1,4 +1,4 @@
-ALIAS_CHAT_APP ?= .
+ALIAS_CHAT_APP ?= ./
 
 install:
 	make build start 
