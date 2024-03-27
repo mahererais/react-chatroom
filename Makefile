@@ -24,3 +24,5 @@ node-install:
 	docker exec node-client-chat bash -c "npm install --force"
 	docker exec node-server-chat bash -c "npm install --force"
 
+deploy:
+	docker exec node-client-chat bash -c "npm run build"
