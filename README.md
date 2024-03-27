@@ -27,11 +27,11 @@
 
 ```bash
   # cat ./exportEnv.sh 
-  export CHAT_CLIENT_PORT=<changeMe!-5173>
-  export CHAT_SERVER_PORT=<changeMe!-3001>
+  export CHAT_CLIENT_PORT=<changeMe!> # default value 5173
+  export CHAT_SERVER_PORT=<changeMe!> # default value 3001
+  export ALIAS_CHAT_APP=<changeMe!>   # default value .
 
   VITE_host=<changeMe!-localhost>
-  ALIAS_CHAT_APP=/chat
 
   echo CHAT_SERVER_PORT=$CHAT_SERVER_PORT > server/.env.local
 
@@ -61,4 +61,6 @@ you have to declare your ***environment*** on a script `exportEnv.sh` and execut
 # deployment
 
 - `make deploy`
+- ⚠️ if you set `ALIAS_CHAT_APP` on `exportEnv.sh`, call 
+  - `make deploy ALIAS_CHAT_APP=$ALIAS_CHAT_APP`
 - `index.html` located on `dist` directory 
