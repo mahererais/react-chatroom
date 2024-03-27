@@ -39,7 +39,7 @@ export const connectAction = createAsyncThunk(
 
     response = await response.json();
     
-    console.log(response);
+    //console.log(response);
     return {
         username : response.pseudo,
         email: payload.email,
