@@ -7,6 +7,7 @@
 
 - ***Without Docker***
   - `. ./exportEnv.sh`
+  - `sh exportEnv.sh
   - server
     - `cd server`
     - `npm install --force`

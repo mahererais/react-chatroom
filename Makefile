@@ -4,6 +4,7 @@ install:
 	make build start 
 
 start:
+	sh exportEnv.sh
 	docker-compose up -d 
 
 stop:
