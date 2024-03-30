@@ -31,12 +31,14 @@
   export CHAT_SERVER_PORT=<changeMe!> # default value 3001
   export ALIAS_CHAT_APP=<changeMe!>   # default value ./
 
-  VITE_host=<changeMe!-localhost>
+  VITE_host=<changeMe!> # default localhost
+  VITE_scheme=<changeMe!> # default http
 
   echo CHAT_SERVER_PORT=$CHAT_SERVER_PORT > server/.env.local
 
   echo VITE_chat_server_port=$CHAT_SERVER_PORT > client/.env.local
   echo VITE_host=$VITE_host >> client/.env.local
+  echo VATE_scheme=$VITE_scheme >> client/.env.local
 ```
   
 ⚠️ : if you want to change default **port** ,

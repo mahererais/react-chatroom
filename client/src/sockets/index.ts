@@ -7,5 +7,6 @@ import { Socket, io } from "socket.io-client";
 // serveur socket.io ecoute 
 const port = import.meta.env.VITE_chat_server_port;
 const host = import.meta.env.VITE_host;
+const scheme = import.meta.env.VITE_scheme;
 
-export const socket:Socket = io(`http://${host}${port ? ':'+port: ''}`)
+export const socket:Socket = io(`${scheme}://${host}${port ? ':'+port: ''}`)
