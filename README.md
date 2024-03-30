@@ -24,6 +24,7 @@
 - create file `exportEnv.sh`
 - add model code below on `exportEnv.sh`
 - fix ***environment*** variables
+- execute script `sh exportEnv.sh`
 
 ```bash
   # cat ./exportEnv.sh 
