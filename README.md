@@ -40,7 +40,7 @@
 
   echo VITE_chat_server_port=$CHAT_SERVER_PORT > client/.env.local
   echo VITE_host=$VITE_host >> client/.env.local
-  echo VATE_scheme=$VITE_scheme >> client/.env.local
+  echo VITE_scheme=$VITE_scheme >> client/.env.local
 ```
   
 ⚠️ : if you want to change default **port** ,
